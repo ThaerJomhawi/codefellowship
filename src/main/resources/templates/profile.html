@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+.allpage {
+    display: flex;
+    gap: 25%;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+form{
+width:400px;
+margin:30px;
+}
+
+textarea{
+width: 100%
+}
+
+.form-and-post {
+    max-width: 600px;
+}
+
+.post p, .post a {
+display:inline-block;
+margin-left:10px;
+word-wrap: anywhere;
+}
+.card {
+color:#FFF3E4;
+background:#6B4F4F;
+  transition: 0.3s;
+  width: 200px;
+  max-height: 500px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+* {box-sizing: border-box;}
+
+body {
+background:#EED6C4;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+
+
+
+ </style>
+
+<body>
+<div th:replace="header :: header">...</div>
+
+<div class="allpage">
+
+    <div class="card">
+        <img src="https://scontent.famm9-1.fna.fbcdn.net/v/t1.6435-9/120158508_3658794554144072_5343568201984704739_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=174925&_nc_eui2=AeHWa7BVIKLivEoKZaSwyC-nPfQvs-rIYVE99C-z6shhUWq9ZplzmxlzYHZK6OafuL2T8FIAYbP4FknMMjXckfHH&_nc_ohc=900txJaA3XUAX-eaiiW&_nc_ht=scontent.famm9-1.fna&oh=f91723dbb16d8194f3e9df6daf3f97f7&oe=61A7131F" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b>username: <span th:text="${user.username}"></span></b></h4>
+            <p>first name: <span th:text="${user.firstName}"></span></p>
+            <p>last name: <span th:text="${user.lastName}"></span></p>
+            <p>date of birth: <span th:text="${user.dateOfBirth}"></span></p>
+            <p>bio: <span th:text="${user.bio}"></span></p>
+        </div>
+    </div>
+
+    <div class="form-and-post">
+
+        <form action="#" th:action="'/addpost/'+ ${user.id}"  method="post">
+            <fieldset>
+                <legend>Add New Post </legend>
+                <textarea id="body" name="body" ></textarea>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+
+        <div class="allposts">
+            <div  th:each="post : ${user.posts}" class="post">
+                <p th:text="${post.createdAt}"></p>
+                <p th:text="${post.body}"></p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
