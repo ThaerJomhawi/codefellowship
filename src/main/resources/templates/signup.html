@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/signup}" method="post" th:object="${object}">
+  <fieldset>
+    <legend>sign up</legend>
+    <label for="username">User Name</label>
+    <input id="username" name="username" type="text" field="*{username}">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" field="*{password}">
+
+    <label for="firstName">first name</label>
+    <input id="firstName" name="firstName" type="text" field="*{firstName}">
+
+    <label for="lastName">last name</label>
+    <input id="lastName" name="lastName" type="text" field="*{lastName}">
+
+    <label for="dateOfBirth">date of birth</label>
+    <input id="dateOfBirth" name="dateOfBirth" type="date" field="*{dateOfBirth}">
+
+    <label for="bio">bio</label>
+    <input id="bio" name="bio" type="text" field="*{bio}">
+    <input type="submit" value="submit">
+  </fieldset>
+</form>
+</body>
+</html>

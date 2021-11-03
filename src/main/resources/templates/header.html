@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div class="header" th:fragment="header">
+    <a href="#default" class="logo">Code Fellow Ship</a>
+    <div class="header-right">
+        <a href="/feed">Feed</a>
+        <a href="/findfriends">Find friends</a>
+        <a href="/myprofile">My profile</a>
+        <a>current user: <span th:text="${username}"></span></a>
+        <a href="/perform_logout">logout</a>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

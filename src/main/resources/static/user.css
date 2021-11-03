@@ -1,0 +1,18 @@
+  body{
+background: whitesmoke;
+}
+.card{
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+    margin-left: 20%;
+}
+
+.container h4{
+    font-size: 4vh;
+}
+
+.container p{
+    font-size: 3vh;
+}
